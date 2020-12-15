@@ -1,6 +1,6 @@
 ### Note 1) Parameterising the implicit Encoder 
 
-First, we build a generic function to read a csv file and return a dataset with the type [T]. To manipulate Row objects into domain specific ones, we use case class
+- First, we build a generic function to read a csv file and return a dataset with the type [T]. To manipulate Row objects into domain specific ones, we use case class
 to type the collections. Look at a code below for clarity of our intention behind the code. 
 
 ```scala
@@ -36,7 +36,7 @@ trait BaseCode[T] {
 Of course, you will need to bring the encoder in scope when calling the method. 
 For example, in our case, you need to specify collections by using case calls MovieTitles and generate code like Encoder[MovieTitles]. 
 
-Second, import SparkSession.implicits not only in the place where we define the function but also where you call it. That is, there is another import that bring the encoder
+- Second , import SparkSession.implicits not only in the place where we define the function but also where you call it. That is, there is another import that bring the encoder
 into scope than  import SparkSession.implicits._ which we have in the pace we define it. 
 
 
