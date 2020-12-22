@@ -1,10 +1,13 @@
 package org.codecraftlabs
-import org.apache.spark.sql.{Dataset,SparkSession}
+import org.apache.spark.sql.{Dataset,SparkSession,Encoder}
 
+
+//For a detailed explanation on parameterizing encoder, refer to the "Code Explanation" folder
 
 trait BaseSetHandler[T]{
+  val fileName:String
   val cols:List[String]
-  def getSchema(cols:List[String]):StructType
-  def readContent(spark:SparkSession):Dataset[T]
-}
+  def getSchema(colName:List[String]):StructType
+  def readContent(spark:SparkSession)(implicit enc:Encoder[T]):Dataset[T]
 
+}
