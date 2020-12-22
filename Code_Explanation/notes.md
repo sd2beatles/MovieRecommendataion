@@ -16,7 +16,7 @@ trait BaseCode[T] {
 }
 ```
 
-The code itself does not look bad on the surface. However, if you look at it more closely, we encounter the error saying "no implicity arguement of type: Encoder [T]".
+The code itself does not look bad at first. However, if you look at it more carefully, we encounter the error saying "no implicity arguement of type: Encoder [T]".
 This type of error is due to the fact that the above code does not gurantee that there will be Encoder[T] is available when necessary. (Encoder is used to convert a JVM object 
 from or to a spark representation). To get around a problem is simply   _to delay the moment when the complier will try to find the required Encoder by parameterizing the implicit encoder_.
 
