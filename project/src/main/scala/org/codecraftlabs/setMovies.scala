@@ -10,7 +10,7 @@ import org.apache.spark.sql.{DataFrame, Dataset, Encoder, SparkSession}
 case class Movies(userID:Int,movieID:Int,rating:Int)
 case class Pairs(movie1:Int,movie2:Int,rating1:Double,rating2:Double)
 object setMovies extends BaseSetHandler[Movies]{
-  override val fileName:String="C:/SparkScalaCourse/SparkScalaCourse/data/ml-100k/u.data"
+  override val fileName:String="/u.data"
   override val cols:List[String]=List("userID","movieID","rating","timeStamp")
   override def getSchema(colName:List[String]):StructType={
     val schema=new StructType()
